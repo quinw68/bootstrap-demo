@@ -1,0 +1,111 @@
+@import '../node_modules/bootstrap/less/bootstrap.less';
+
+@navbar-height: 90px;
+@font-size-base: 20px;
+@body-bg: #323;
+
+@gray-base:              #fff;
+@gray-darker:            darken(@gray-base, 13.5%);
+@gray-dark:              darken(@gray-base, 20%);
+@gray:                   darken(@gray-base, 33.5%);
+@gray-light:             darken(@gray-base, 46.7%);
+@gray-lighter:           darken(@gray-base, 93.5%);
+
+@brand-primary:   #858;
+
+@navbar-default-color:             #999;
+@navbar-default-bg:                lighten(@body-bg, 10%);
+@navbar-default-link-color:        @navbar-default-color;
+@navbar-default-link-hover-color:  lighten(@navbar-default-color, 20%);
+@navbar-default-link-active-color: lighten(@navbar-default-color, 10%);
+
+@dropdown-bg:            @body-bg;
+@dropdown-link-hover-bg: lighten(@dropdown-bg, 10%);
+
+@border-radius-base: 0px;
+@border-radius-large: 0px;
+@border-radius-small: 0px;
+
+.navbar {
+
+  img {
+    display: inline-block;
+    height: 100%;
+    width: auto;
+  }
+
+  ul.navbar-nav > li > a {
+    height: @navbar-height;
+  }
+}
+
+/* Carousel base class */
+.carousel {
+  @carousel-height: 400px;
+  height: @carousel-height;
+  margin-bottom: 60px;
+
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    z-index: 10;
+  }
+
+  /* Declare heights because of positioning of img element */
+  .item {
+    height: @carousel-height;
+  }
+  .carousel-inner {
+    background: linear-gradient(to right, @body-bg , lighten(@body-bg, 20%), @body-bg);
+  }
+}
+
+
+/**
+ * profile-token.less
+ */
+.profile-token {
+  padding: 10px;
+
+  /* entire container, keeps perspective */
+  .flip-container {
+    perspective: 1000px;
+  }
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+  .flip-container, .front, .back {
+    height: 50px;
+    width: 50px;
+  }
+
+  /* flip speed goes here */
+  .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+  }
+
+  /* hide back of pane during swap */
+  .front, .back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* front pane, placed above back */
+  .front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+  }
+
+  /* back, initially hidden pane */
+  .back {
+    transform: rotateY(180deg);
+  }
+}
